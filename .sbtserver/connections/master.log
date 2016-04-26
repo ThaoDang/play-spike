@@ -1,0 +1,103 @@
+New log file opened at Tue Apr 26 16:23:48 SGT 2016 by 78970@Thaos-MacBook-Pro.local
+Taking next connection to: 51010
+New client attempting to connect on port: 51011-51010
+  Address = /192.168.55.1:51010
+This client on port 51011 has uuid 5c9d6975-ac5b-4940-ae7d-d3b8bde6ea87 configName activator humanReadableName Activator protocolVersion 3 featureTags Vector()
+Connected Clients: activator-5c9d6975-ac5b-4940-ae7d-d3b8bde6ea87
+Taking next connection to: 51010
+New client attempting to connect on port: 51012-51010
+  Address = /192.168.55.1:51010
+Handshake exception on socket: 51012
+sbt.impl.ipc.HandshakeException: Unable to perform handshake
+	at sbt.impl.ipc.Peer.handshake(IPC.scala:46)
+	at sbt.impl.ipc.MultiClientServer.<init>(IPC.scala:150)
+	at sbt.server.SbtServerSocketHandler$$anon$1.run(SbtServerSocketHandler.scala:43)
+Caused by: java.io.EOFException
+	at java.io.DataInputStream.readInt(DataInputStream.java:392)
+	at sbt.impl.ipc.Peer.receive(IPC.scala:95)
+	at sbt.impl.ipc.Peer.handshake(IPC.scala:49)
+	... 2 more
+Taking next connection to: 51010
+New client attempting to connect on port: 51013-51010
+  Address = /192.168.55.1:51010
+This client on port 51013 has uuid 3548378e-358f-4a68-a12a-2d5ee73d55e2 configName activator humanReadableName Activator protocolVersion 3 featureTags Vector()
+Connected Clients: activator-5c9d6975-ac5b-4940-ae7d-d3b8bde6ea87, activator-3548378e-358f-4a68-a12a-2d5ee73d55e2
+Taking next connection to: 51010
+New client attempting to connect on port: 51014-51010
+  Address = /192.168.55.1:51010
+Handshake exception on socket: 51014
+sbt.impl.ipc.HandshakeException: Unable to perform handshake
+	at sbt.impl.ipc.Peer.handshake(IPC.scala:46)
+	at sbt.impl.ipc.MultiClientServer.<init>(IPC.scala:150)
+	at sbt.server.SbtServerSocketHandler$$anon$1.run(SbtServerSocketHandler.scala:43)
+Caused by: java.io.EOFException
+	at java.io.DataInputStream.readInt(DataInputStream.java:392)
+	at sbt.impl.ipc.Peer.receive(IPC.scala:95)
+	at sbt.impl.ipc.Peer.handshake(IPC.scala:49)
+	... 2 more
+Taking next connection to: 51010
+New client attempting to connect on port: 51015-51010
+  Address = /192.168.55.1:51010
+This client on port 51015 has uuid 0fcf88e8-1d5f-4ffd-bb76-6d9f65476905 configName play-fork-run humanReadableName Play Fork Run protocolVersion 1 featureTags Vector()
+Connected Clients: activator-3548378e-358f-4a68-a12a-2d5ee73d55e2, play-fork-run-0fcf88e8-1d5f-4ffd-bb76-6d9f65476905
+Taking next connection to: 51010
+Checking to see if clients are empty...
+We have 1 non-daemon clients, continuing serving connections.
+Taking next connection to: 51010
+Checking to see if clients are empty...
+We have 1 non-daemon clients, continuing serving connections.
+Taking next connection to: 51010
+Checking to see if clients are empty...
+We have 1 non-daemon clients, continuing serving connections.
+Taking next connection to: 51010
+Checking to see if clients are empty...
+We have 1 non-daemon clients, continuing serving connections.
+Taking next connection to: 51010
+Checking to see if clients are empty...
+We have 1 non-daemon clients, continuing serving connections.
+Taking next connection to: 51010
+Checking to see if clients are empty...
+We have 1 non-daemon clients, continuing serving connections.
+Taking next connection to: 51010
+Checking to see if clients are empty...
+We have 1 non-daemon clients, continuing serving connections.
+Taking next connection to: 51010
+Checking to see if clients are empty...
+We have 1 non-daemon clients, continuing serving connections.
+Taking next connection to: 51010
+Checking to see if clients are empty...
+We have 1 non-daemon clients, continuing serving connections.
+Taking next connection to: 51010
+Checking to see if clients are empty...
+We have 1 non-daemon clients, continuing serving connections.
+Taking next connection to: 51010
+Checking to see if clients are empty...
+We have 1 non-daemon clients, continuing serving connections.
+Taking next connection to: 51010
+Checking to see if clients are empty...
+We have 1 non-daemon clients, continuing serving connections.
+Taking next connection to: 51010
+Checking to see if clients are empty...
+We have 1 non-daemon clients, continuing serving connections.
+Taking next connection to: 51010
+Checking to see if clients are empty...
+We have 1 non-daemon clients, continuing serving connections.
+Taking next connection to: 51010
+Checking to see if clients are empty...
+We have 1 non-daemon clients, continuing serving connections.
+Taking next connection to: 51010
+Checking to see if clients are empty...
+We have 1 non-daemon clients, continuing serving connections.
+Taking next connection to: 51010
+Checking to see if clients are empty...
+We have 1 non-daemon clients, continuing serving connections.
+Taking next connection to: 51010
+Checking to see if clients are empty...
+We have 1 non-daemon clients, continuing serving connections.
+Taking next connection to: 51010
+Checking to see if clients are empty...
+We have 1 non-daemon clients, continuing serving connections.
+Taking next connection to: 51010
+Checking to see if clients are empty...
+We have 1 non-daemon clients, continuing serving connections.
+Taking next connection to: 51010
