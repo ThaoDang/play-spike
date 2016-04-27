@@ -1,10 +1,12 @@
 logs
+*.log
 target
-/.idea
-/.idea_modules
+.idea
+.idea_modules
 /.classpath
-/.project
-/.settings
-/.sbtserver
+.project
+.settings
+.sbtserver
 /RUNNING_PID
 .sbtserver/
+.sbtserver
