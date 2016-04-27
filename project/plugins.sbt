@@ -15,6 +15,7 @@ addSbtPlugin("org.irundaia.sbt" % "sbt-sassify" % "1.4.2")
 // plugin if you prefer not to have this feature, or disable on a per project
 // basis using disablePlugins(PlayEnhancer) in your build.sbt
 addSbtPlugin("com.typesafe.sbt" % "sbt-play-enhancer" % "1.1.0")
+addSbtPlugin("com.code-troopers.play" % "play-querydsl" % "0.1.2")
 
 // Play Ebean support, to enable, uncomment this line, and enable in your build.sbt using
 // enablePlugins(PlayEbean).
