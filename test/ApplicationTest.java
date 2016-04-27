@@ -40,6 +40,4 @@ public class ApplicationTest {
         assertEquals("text/html", html.contentType());
         assertTrue(html.body().contains("Your new application is ready."));
     }
-
-
 }

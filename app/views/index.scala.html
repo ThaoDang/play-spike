@@ -1,34 +1,23 @@
 @*
- * This template takes a single argument, a String containing a
- * message to display.
- *@
+* This template takes a single argument, a String containing a
+* message to display.
+*@
 @(message: String)
-
-@*
- * Call the `main` template with two arguments. The first
- * argument is a `String` with the title of the page, the second
- * argument is an `Html` object containing the body of the page.
- *@
-@main("Welcome to Play") {
-    <form action="/login">
-        <table>
-            <tr>
-                <td>
-                    <label>Username: </label>
-                    <input name="userName">
-                </td>
-            </tr>
-            <tr>
-                <td>
-                    <label>Password: </label>
-                    <input type="password" name="password">
-                </td>
-            </tr>
-            <tr>
-                <td>
-                    <button type="submit">Login</button>
-                </td>
-            </tr>
-        </table>
-    </form>
-}
+    @*
+    * Call the `main` template with two arguments. The first
+    * argument is a `String` with the title of the page, the second
+    * argument is an `Html` object containing the body of the page.
+    *@
+    @main("Welcome to Play") {
+        @helper.form(action = routes.LoginController.login()) {
+            <div>
+                <label>Username: </label>
+                <input name="userName">
+            </div>
+            <div>
+                <label>Password: </label>
+                <input type="password" name="password">
+            </div>
+            <button type="submit">Login</button>
+        }
+    }

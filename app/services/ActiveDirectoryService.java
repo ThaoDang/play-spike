@@ -21,9 +21,9 @@ public class ActiveDirectoryService {
     public static final String domainName =   "dc=localhost,dc=com";
     public static final int timeout = 1;
 //
-//    public static final String ldapURL = Play._currentApp().configuration().getString("ActiveDirectory.url").get();
-//    public static final String domainName =   Play._currentApp().configuration().getString("ActoveDirectory.DomainName").get();
-//    public static final int timeout =         Integer.parseInt(Play._currentApp().configuration().getInt("ActoveDirectory.timeout").get());
+//    public static final String ldapURL = Play._currentApp().configuration().getString("ActiveDirectory.url", null).get();
+//    public static final String domainName =   Play._currentApp().configuration().getString("ActoveDirectory.DomainName", null).get();
+//    public static final int timeout =         Integer.parseInt(Play._currentApp().configuration().getInt("ActoveDirectory.timeout").get().toString());
 
     public static CompletableFuture<Boolean> authenticate(String username, String password) throws AuthenticationException, CommunicationException, NamingException {
 

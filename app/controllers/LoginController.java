@@ -11,6 +11,7 @@ import play.mvc.*;
 
 import services.ActiveDirectoryService;
 import services.Counter;
+import views.html.welcome;
 
 import java.util.concurrent.ExecutionException;
 
@@ -41,7 +42,6 @@ public class LoginController extends Controller {
         Form<User> form = formFactory.form(User.class);
         User user = form.bindFromRequest().get();
         boolean authenticated = ActiveDirectoryService.authenticate(user.getUserName(), user.getPassword()).get();
-        return authenticated ? ok("Logged In!!") : forbidden("Failed Login");
+        return authenticated ? ok(welcome.render("Welcome", user.getUserName())) : forbidden("Failed Login");
     }
-
 }
