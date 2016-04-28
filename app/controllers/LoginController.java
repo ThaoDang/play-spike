@@ -60,7 +60,7 @@ public class LoginController extends Controller {
             session("username", user.getUsername());
         }
 
-        return authenticated ? ok("Logged In!!") : forbidden("Failed Login");
+        return authenticated ? redirect("/welcome") : forbidden("Failed Login");
 
 
     }

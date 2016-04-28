@@ -18,5 +18,4 @@ libraryDependencies ++= Seq(
   javaWs
 )
 
-
 fork in run := true

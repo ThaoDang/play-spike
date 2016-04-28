@@ -45,11 +45,16 @@ public class ActiveDirectoryService {
     }
 
     public Boolean authenticateLdap(String username, String password) throws LdapException {
-        ConnectionConfig connConfig = new ConnectionConfig("ldap://directory.ldaptive.org");
-        connConfig.setUseStartTLS(true);
+        ConnectionConfig connConfig = new ConnectionConfig(ldapURL);
+//        connConfig.setUseStartTLS(true);
+//        connConfig.setConnectionInitializer(
+//                new BindConnectionInitializer("cn=Manager,dc=localhost,dc=com", new Credential("pass1234")));
 
         SearchDnResolver dnResolver = new SearchDnResolver(new DefaultConnectionFactory(connConfig));
         dnResolver.setBaseDn(domainName);
+        dnResolver.setUserFilter("cn={user}");
+        dnResolver.setSubtreeSearch(true);
+
 
         BindAuthenticationHandler authHandler = new BindAuthenticationHandler(new DefaultConnectionFactory(connConfig));
         Authenticator auth = new Authenticator(dnResolver, authHandler);
