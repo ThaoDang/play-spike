@@ -1,4 +1,6 @@
 import javax.inject.*;
+
+import filters.AuthorizationFilter;
 import play.*;
 import play.mvc.EssentialFilter;
 import play.http.HttpFilters;
@@ -20,15 +22,17 @@ public class Filters implements HttpFilters {
 
     private final Environment env;
     private final EssentialFilter exampleFilter;
+    private final AuthorizationFilter authorizationFilter;
 
     /**
      * @param env Basic environment settings for the current application.
      * @param exampleFilter A demonstration filter that adds a header to
      */
     @Inject
-    public Filters(Environment env, ExampleFilter exampleFilter) {
+    public Filters(Environment env, ExampleFilter exampleFilter, AuthorizationFilter authorizationFilter) {
         this.env = env;
         this.exampleFilter = exampleFilter;
+        this.authorizationFilter= authorizationFilter;
     }
 
     @Override
@@ -37,7 +41,7 @@ public class Filters implements HttpFilters {
       // we're running in production or test mode then don't use any
       // filters at all.
       if (env.mode().equals(Mode.DEV)) {
-          return new EssentialFilter[] { exampleFilter };
+          return new EssentialFilter[] { exampleFilter, authorizationFilter };
       } else {
          return new EssentialFilter[] {};      
       }

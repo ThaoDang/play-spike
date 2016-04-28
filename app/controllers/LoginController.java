@@ -47,9 +47,16 @@ public class LoginController extends Controller {
     public Result login() throws NamingException, ExecutionException, InterruptedException {
         Form<User> form = formFactory.form(User.class);
         User user = form.bindFromRequest().get();
-        boolean authenticated = activeDirectoryService.authenticate(user.getUsername(), user.getPassword()).get();
 
-        return authenticated ? ok(welcome.render("Welcome", personService.getPerson(user.getUsername()))) : forbidden("Failed Login");
+//        boolean authenticated = ActiveDirectoryService.authenticate(user.getUserName(), user.getPassword()).get();
+            boolean authenticated = true;
+        if(authenticated){
+            session().clear();
+            session("username", user.getUsername());
+        }
+
+        return authenticated ? ok("Logged In!!") : forbidden("Failed Login");
+
 
     }
 }

@@ -5,15 +5,15 @@ package models;
  */
 public class User {
 
-    protected String userame;
+    protected String username;
     protected String password;
 
     public void setUsername(String userame) {
-        this.userame = userame;
+        this.username = userame;
     }
 
     public String getUsername() {
-        return userame;
+        return username;
     }
 
     public void setPassword(String password) {
