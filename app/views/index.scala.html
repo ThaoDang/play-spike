@@ -9,15 +9,5 @@
     * argument is an `Html` object containing the body of the page.
     *@
     @main("Welcome to Play") {
-        @helper.form(action = routes.LoginController.login()) {
-            <div>
-                <label>Username: </label>
-                <input name="userName">
-            </div>
-            <div>
-                <label>Password: </label>
-                <input type="password" name="password">
-            </div>
-            <button type="submit">Login</button>
-        }
+        <h1>Please <a href="/login">Login</a> here</h1>
     }

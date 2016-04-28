@@ -11,31 +11,41 @@ import javax.persistence.Id;
 @Entity
 public class Person {
 
-  @Id
-  @GeneratedValue
-  private Long personId;
+    @Id
+    @GeneratedValue
+    private Long id;
 
-  @Column private String name;
+    @Column
+    private String name;
 
-  @Column private int age;
+    @Column
+    private int age;
 
-  public Person(final String name, final int age) {
-    this.name = name;
-    this.age = age;
-  }
+    @Column
+    private String userName;
 
-  public Person() {
-  }
+    public Person(final String name, final int age, final String userName) {
+        this.name = name;
+        this.age = age;
+        this.userName = userName;
+    }
 
-  public Long getPersonId() {
-    return personId;
-  }
+    public Person() {
+    }
 
-  public String getName() {
-    return name;
-  }
+    public Long getId() {
+        return id;
+    }
 
-  public int getAge() {
-    return age;
-  }
+    public String getName() {
+        return name;
+    }
+
+    public int getAge() {
+        return age;
+    }
+
+    public String getUserName() {
+        return userName;
+    }
 }

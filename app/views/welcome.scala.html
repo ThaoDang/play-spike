@@ -1,5 +1,6 @@
-@(title: String, userName: String)
+@(title: String, person: Person)
 
 @main(title) {
-    <h1>Hello @userName</h1>
+    <h1>Hello @person.getName()</h1>
+    <h2>You are @person.getAge() years old</h2>
 }

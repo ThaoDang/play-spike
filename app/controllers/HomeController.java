@@ -21,19 +21,8 @@ public class HomeController extends Controller {
      * this method will be called when the application receives a
      * <code>GET</code> request with a path of <code>/</code>.
      */
-    @Transactional
+//    @RequiresAuthentication
     public Result index() {
-        // Normal hibernate way
-        //Person person = JPA.em().find(Person.class, new Long(1));
-
-
-        //Query DSL way
-        QPerson person1 = QPerson.person;
-        JPAQuery query = new JPAQuery(JPA.em());
-        Person bob = query.from(person1)
-                .where(person1.name.eq("Bob"))
-                .uniqueResult(person1);
-
         return ok(index.render("Your new application is ready."));
     }
 }

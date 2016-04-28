@@ -3,15 +3,17 @@ package controllers;
 import javax.inject.*;
 import javax.naming.NamingException;
 
-import model.User;
-import play.*;
+import models.User;
 import play.data.Form;
 import play.data.FormFactory;
 import play.mvc.*;
 
 import services.ActiveDirectoryService;
 import services.Counter;
+import services.PersonService;
+import views.html.login;
 import views.html.welcome;
+import play.db.jpa.Transactional;
 
 import java.util.concurrent.ExecutionException;
 
@@ -24,12 +26,15 @@ import java.util.concurrent.ExecutionException;
 @Singleton
 public class LoginController extends Controller {
 
-    private FormFactory formFactory;
-
     @Inject
-    public LoginController(FormFactory formFactory) {
+    private FormFactory formFactory;
+    @Inject
+    private ActiveDirectoryService activeDirectoryService;
+    @Inject
+    private PersonService personService;
 
-        this.formFactory = formFactory;
+    public Result loginForm() {
+        return ok(login.render("Please Login"));
     }
 
     /**
@@ -38,10 +43,13 @@ public class LoginController extends Controller {
      * <code>GET</code> requests with a path of <code>/count</code>
      * requests by an entry in the <code>routes</code> config file.
      */
+    @Transactional
     public Result login() throws NamingException, ExecutionException, InterruptedException {
         Form<User> form = formFactory.form(User.class);
         User user = form.bindFromRequest().get();
-        boolean authenticated = ActiveDirectoryService.authenticate(user.getUserName(), user.getPassword()).get();
-        return authenticated ? ok(welcome.render("Welcome", user.getUserName())) : forbidden("Failed Login");
+        boolean authenticated = activeDirectoryService.authenticate(user.getUsername(), user.getPassword()).get();
+
+        return authenticated ? ok(welcome.render("Welcome", personService.getPerson(user.getUsername()))) : forbidden("Failed Login");
+
     }
 }

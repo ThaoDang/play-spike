@@ -25,7 +25,7 @@ public class ActiveDirectoryService {
 //    public static final String domainName =   Play._currentApp().configuration().getString("ActoveDirectory.DomainName", null).get();
 //    public static final int timeout =         Integer.parseInt(Play._currentApp().configuration().getInt("ActoveDirectory.timeout").get().toString());
 
-    public static CompletableFuture<Boolean> authenticate(String username, String password) throws AuthenticationException, CommunicationException, NamingException {
+    public CompletableFuture<Boolean> authenticate(String username, String password) throws AuthenticationException, CommunicationException, NamingException {
 
         Hashtable<String, String> env = new Hashtable<String,String>();
 
