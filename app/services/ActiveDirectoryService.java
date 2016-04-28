@@ -1,5 +1,8 @@
 package services;
 
+import org.ldaptive.*;
+import org.ldaptive.auth.*;
+import org.ldaptive.control.ResponseControl;
 import play.api.Play;
 import play.libs.F;
 
@@ -11,6 +14,7 @@ import javax.naming.directory.InitialDirContext;
 import java.util.Hashtable;
 import java.util.concurrent.CompletableFuture;
 import java.util.concurrent.CompletionStage;
+import java.util.concurrent.Future;
 
 /**
  * Created by thaodang on 26/4/16.
@@ -38,6 +42,27 @@ public class ActiveDirectoryService {
 
         new InitialDirContext(env);
         return CompletableFuture.completedFuture(Boolean.TRUE);
+    }
+
+    public Boolean authenticateLdap(String username, String password) throws LdapException {
+        ConnectionConfig connConfig = new ConnectionConfig("ldap://directory.ldaptive.org");
+        connConfig.setUseStartTLS(true);
+
+        SearchDnResolver dnResolver = new SearchDnResolver(new DefaultConnectionFactory(connConfig));
+        dnResolver.setBaseDn(domainName);
+
+        BindAuthenticationHandler authHandler = new BindAuthenticationHandler(new DefaultConnectionFactory(connConfig));
+        Authenticator auth = new Authenticator(dnResolver, authHandler);
+        AuthenticationResponse response = auth.authenticate(
+                new AuthenticationRequest(username, new Credential(password)));
+        if (response.getResult()) { // authentication succeeded
+            LdapEntry entry = response.getLdapEntry(); // read mail and sn attributes
+            return true;
+        } else { // authentication failed
+            String msg = response.getMessage(); // read the failure message
+            ResponseControl[] ctls = response.getControls(); // read any response controls
+        }
+        return false;
     }
 
 }

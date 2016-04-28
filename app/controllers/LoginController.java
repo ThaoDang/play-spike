@@ -4,6 +4,7 @@ import javax.inject.*;
 import javax.naming.NamingException;
 
 import models.User;
+import org.ldaptive.LdapException;
 import play.data.Form;
 import play.data.FormFactory;
 import play.mvc.*;
@@ -47,9 +48,13 @@ public class LoginController extends Controller {
     public Result login() throws NamingException, ExecutionException, InterruptedException {
         Form<User> form = formFactory.form(User.class);
         User user = form.bindFromRequest().get();
-
-//        boolean authenticated = ActiveDirectoryService.authenticate(user.getUserName(), user.getPassword()).get();
-            boolean authenticated = true;
+        boolean authenticated = false;
+        try {
+            authenticated = activeDirectoryService.authenticateLdap(user.getUsername(), user.getPassword());
+        } catch (LdapException e) {
+            e.printStackTrace();
+            internalServerError(e.getMessage());
+        }
         if(authenticated){
             session().clear();
             session("username", user.getUsername());
